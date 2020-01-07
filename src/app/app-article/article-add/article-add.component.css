@@ -1,0 +1,25 @@
+.container {
+    margin-top: 20px;
+}
+
+.full-width {
+    width: 100%;
+    font-size: 14px;
+}
+
+.icon-green {
+    font-size: 35px;
+    color: green;
+    margin-top: 5px;
+}
+
+.icon-red {
+    font-size: 35px;
+    color: red;
+    margin-top: 5px;
+}
+
+.btn-input {
+    width: 100%;
+    margin-top: 10px;
+}

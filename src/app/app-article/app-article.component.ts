@@ -32,7 +32,7 @@ export class AppArticleComponent implements OnInit {
     }
 
     addArticle() {
-        this.router.navigate(['/2105/article/new']);
+        this.router.navigate(['/article/new']);
     }
 
     editArticle() {

@@ -23,6 +23,10 @@ import { AppArticleComponent } from './app-article/app-article.component';
 import { ArticleAddComponent } from './app-article/article-add/article-add.component';
 import { ArticleDeleteComponent } from './app-article/article-delete/article-delete.component';
 import { ArticleEditComponent } from './app-article/article-edit/article-edit.component';
+import { QuillModule } from 'ngx-quill';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
     declarations: [
@@ -40,12 +44,21 @@ import { ArticleEditComponent } from './app-article/article-edit/article-edit.co
     ],
     imports: [
         BrowserModule,
+        AngularFireModule.initializeApp({
+            apiKey: "AIzaSyDNmtNjvp4h1WppONQaTua13u0jjmLKZDk",
+            authDomain: "zel-blog.firebaseapp.com",
+            storageBucket: "zel-blog.appspot.com",
+            projectId: "zel-blog",
+        }),
+        AngularFireStorageModule,
+        AngularFirestoreModule,
         BrowserAnimationsModule,
         MaterialModule,
         AppRoutingModule,
         FormsModule,
         HttpClientModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        QuillModule.forRoot(),
     ],
     entryComponents: [
         AppErrorComponent,
