@@ -1,0 +1,22 @@
+<title>Login</title>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <mat-card class="card-body" [class.mat-elevation-z4]="true">
+                <img class="img-login" src="assets/images/logo.png">
+                <form #f="ngForm" (ngSubmit)="login(f)" class="form-signin" (ngSubmit)="login">
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" [(ngModel)]="email" name="email" class="mat-input" matInput required>
+                    </mat-form-field>
+                    <mat-form-field class="form-field" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" [(ngModel)]="password" name="password" class="mat-input" matInput autocomplete="off" required>
+                    </mat-form-field>
+                    <button class="mat-btn" mat-flat-button [attr.tabindex]="-1" color="primary" type="submit">SIGN IN</button>
+                    <!-- <hr class="my-4"> -->
+                </form>
+            </mat-card>
+        </div>
+    </div>
+</div>

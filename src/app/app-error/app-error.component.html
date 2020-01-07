@@ -1,0 +1,59 @@
+<div *ngIf="this.status <= 0">
+    <table width="100%">
+        <tr>
+            <td align="center">
+                <img src="assets/images/maintanance.png" width="80%">
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <p>Down for Maintanance. Please check back soon.</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <button [attr.tabindex]="-1" mat-flat-button color="primary" (click)="closeExpired()" class="btn-block">Close</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="this.status > 0">
+    <div *ngIf="data.reason == 'Unauthorized'">
+        <table width="100%">
+            <tr>
+                <td align="center">
+                    <img src="assets/images/expired.png" width="80%">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p>Your session is expired. Please re-login</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <button [attr.tabindex]="-1" mat-flat-button color="primary" (click)="closeExpired()" class="btn-block">Login</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="data.reason != 'Unauthorized'">
+        <table width="100%">
+            <tr>
+                <td align="center">
+                    <img src="assets/images/filed.png" width="80%">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <p>Username or Password Failed. Please try again.</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <button [attr.tabindex]="-1" mat-flat-button color="primary" (click)="closeFailedLogin()" class="btn-block">Try Again</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

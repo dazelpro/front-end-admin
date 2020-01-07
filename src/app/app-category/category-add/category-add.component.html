@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <td class="title">Add Category</td>
+    </tr>
+</table>
+<div class="form">
+    <form>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Category Name</mat-label>
+            <input type="text" [(ngModel)]="category_name" name="category_name" matInput autocomplete="off">
+        </mat-form-field>
+        <table width="100%">
+            <tr>
+                <td width="50%"><button class="mat-btn" mat-flat-button [attr.tabindex]="-1" color="primary" type="submit" (click)="saveData()">Save</button></td>
+                <td width="50%"><button class="mat-cancel" mat-stroked-button [attr.tabindex]="-1" color="primary" (click)="onCancel()">Cancel</button></td>
+            </tr>
+        </table>
+        
+    </form>
+</div>
