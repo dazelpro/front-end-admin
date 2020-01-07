@@ -114,7 +114,7 @@ export class ArticleAddComponent implements OnInit {
                 },
                 ).subscribe(async (data)=>{
                     if (data['success']) {
-                        this.router.navigate(['/2105/article']);
+                        this.router.navigate(['/article']);
                 }
                 },(err)=>{
                     console.log(err);

@@ -1,1 +1,48 @@
-<p>article-edit works!</p>
+<title>Edit Article</title>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+        <mat-card class="editor">
+            <mat-form-field class="full-width">
+                <input matInput [(ngModel)]="title" name="title" placeholder="Title Article" autocomplete="off" required>
+            </mat-form-field>
+            <quill-editor [modules]="modules" syntax="true" [(ngModel)]="content"></quill-editor>
+        </mat-card>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <mat-card class="editor">
+                <table width="100%">
+                    <tr>
+                        <td>
+                            <img *ngIf="downloadURL" style="width: 100%" src="{{ downloadURL | async }}" alt="Card image cap" onerror="this.src='/assets/images/thumbnail.png'">
+                            <img *ngIf="!downloadURL" style="width: 100%" src="{{linkImage}}?alt=media" alt="Card image cap" onerror="this.src='/assets/images/thumbnail.png'">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-progress-bar mode="determinate" [value]="(uploadProgress | async)"></mat-progress-bar>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input hidden type="file" (change)="onFileSelected($event)" accept=".png,.jpg" #fileInput>
+                            <button type="button" [attr.tabindex]="-1" class="btn-input" mat-raised-button (click)="fileInput.click()">Choose Image</button>
+                        </td>
+                    </tr>                    
+                </table>
+                <br>
+                <mat-form-field class="full-width">
+                    <input matInput [(ngModel)]="keyword" name="keyword" placeholder="Meta Keyword" autocomplete="off" required>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <textarea matInput [(ngModel)]="description" placeholder="Meta Description"></textarea>
+                </mat-form-field>
+                <mat-slide-toggle color="primary" (change)="changeStatus()" [(ngModel)]="checked">
+                {{statusPost}}
+                </mat-slide-toggle>
+                <br>
+                <button type="button" (click)="editArticle()" [attr.tabindex]="-1" class="btn-input" color="primary" mat-raised-button><mat-icon>send</mat-icon>&nbsp; Update</button>
+            </mat-card>
+        </div>
+    </div>
+</div>
