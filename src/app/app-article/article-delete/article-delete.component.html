@@ -1,1 +1,15 @@
-<p>article-delete works!</p>
+<!-- <table>
+    <tr>
+        <td class="title">Delete Article</td>
+    </tr>
+</table> -->
+<div class="form">
+        <h4>Are you sure?</h4>
+        <p>Do you really want to delete these records? This process cannot be undone.</p>
+        <table width="100%">
+            <tr>
+                <td align="left" width="50%"><button class="mat-btn" mat-flat-button [attr.tabindex]="-1" type="submit" (click)="deleteData()">Delete</button></td>
+                <td align="right" width="50%"><button class="mat-cancel" mat-stroked-button [attr.tabindex]="-1" (click)="onCancel()">Cancel</button></td>
+            </tr>
+        </table>
+</div>

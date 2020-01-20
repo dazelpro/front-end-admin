@@ -1,11 +1,11 @@
-<title>Article</title>
+<title>Users</title>
 <div class="container">
     <mat-card>
         <table width="100%">
             <tr>
                 <td>
                     <div style="margin-bottom:10px;">
-                        <button [attr.tabindex]="-1" mat-flat-button color="primary" (click)="addArticle()">Add Article</button>
+                        <button (click)="openDialogAdd()" [attr.tabindex]="-1" mat-flat-button color="primary">Add User</button>
                     </div>
                 </td>
                 <td align="right">
@@ -20,23 +20,19 @@
                 <thead class="thead-blue">
                     <tr>
                         <th scope="col" width="5%">#</th>
-                        <th scope="col" width="30%">Title</th>
-                        <th scope="col" width="15%">Category</th>
-                        <th scope="col" width="25%">Create</th>
-                        <th scope="col" width="10%">View</th>
+                        <th scope="col" width="40%">Name</th>
+                        <th scope="col" width="40%">Email</th>
                         <th scope="col" width="15%"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let data of dataArticle | paginate: { itemsPerPage: 10, currentPage: p }; let i= index">
+                    <tr *ngFor="let data of dataUsers | paginate: { itemsPerPage: 10, currentPage: p }; let i= index">
                         <td>{{(p - 1) * 10 + i +1}}</td>
-                        <td>{{data.article_title}}</td>
-                        <td>{{data.category_name}}</td>
                         <td>{{data.user_name}}</td>
-                        <td>{{data.article_view}}</td>
+                        <td>{{data.user_email}}</td>
                         <td align="center">
-                            <button [attr.tabindex]="-1" routerLink="/article/edit/{{data.article_id}}" class="btn btn-circle btn-circle-sm m-1"><i class="fa fa-pencil"></i></button>
-                            <button [attr.tabindex]="-1" (click)="dialogDelete(data.article_id)" class="btn btn-circle btn-circle-sm m-1"><i class="fa fa-remove"></i></button>
+                            <button [attr.tabindex]="-1" (click)="dialogEditItem([data.users_id, data.users_name])" class="btn btn-circle btn-circle-sm m-1"><i class="fa fa-pencil"></i></button>
+                            <button [attr.tabindex]="-1" (click)="deleteItem(data.users_id)" class="btn btn-circle btn-circle-sm m-1"><i class="fa fa-remove"></i></button>
                         </td>
                     </tr>
                 </tbody>

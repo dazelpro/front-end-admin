@@ -34,7 +34,7 @@ export class AppRestApiService {
         return 'https://dazelpro.my.id';
     }
 
-    // Admin Login
+    // Login
     user_login(data) {
         return this.http.post(`${this.link_url()}/api-login`,data,{ headers: this.getHeaders() });
     }
@@ -43,7 +43,7 @@ export class AppRestApiService {
         return this.http.get(`${this.link_url()}/api-account`,{ headers: this.getHeaders() });
     }
 
-    // Admin Category
+    // Category
     category_all(){
         return this.http.get(`${this.link_url()}/api-category/show-category`,{ headers: this.getHeaders() });
     }
@@ -60,12 +60,25 @@ export class AppRestApiService {
         return this.http.post(`${this.link_url()}/api-category/delete-category`,data,{ headers: this.getHeaders() });
     }
 
-    // Admin Users
+    // Users
     users_all(){
         return this.http.get(`${this.link_url()}/api-users/show-user`,{ headers: this.getHeaders() });
     }
 
-    // Admin Article
+    save_user(data) {
+        return this.http.post(`${this.link_url()}/api-users/add-user`,data,{ headers: this.getHeaders() });
+    }
+
+    // Settings
+    get_setting_site(data){
+        return this.http.get(`${this.link_url()}/api-settings/show-setting-site/`+data,{ headers: this.getHeaders() });
+    }
+
+    update_site_setting(data) {
+        return this.http.post(`${this.link_url()}/api-settings/update-setting-site`,data,{ headers: this.getHeaders() });
+    }
+
+    // Article
     article_all(){
         return this.http.get(`${this.link_url()}/api-article/show-article-all`,{ headers: this.getHeaders() });
     }
@@ -80,5 +93,9 @@ export class AppRestApiService {
 
     edit_article(data) {
         return this.http.post(`${this.link_url()}/api-article/edit-article`,data,{ headers: this.getHeaders() });
+    }
+
+    delete_article(data) {
+        return this.http.post(`${this.link_url()}/api-article/delete-article`,data,{ headers: this.getHeaders() });
     }
 }

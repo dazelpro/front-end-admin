@@ -39,10 +39,11 @@ export class AppArticleComponent implements OnInit {
         console.log('tes2');
     }
 
-    dialogDelete() {
+    dialogDelete(arr) {
         const dialogRef = this.dialog.open(ArticleDeleteComponent, {
             width: '450px',
-            height: '220px'
+            height: '240px',
+            data: arr
         });
         dialogRef.afterClosed().subscribe(result => {
             this.ngOnInit();

@@ -1,0 +1,36 @@
+.container {
+    margin-top: 20px;
+}
+
+.thead-blue {
+    background : #3F51B5 !important;
+    color: white;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #3F51B5;
+    border-radius: 5px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    line-height: 0px;
+    text-align: center;
+    padding: 0;
+    border-radius: 50%;
+    background: #3F51B5;
+}
+
+.btn-circle i {
+position: relative;
+top: -1px;
+color: white;
+}
+
+.btn-circle-sm {
+width: 25px;
+height: 25px;
+line-height: 0px;
+font-size: 0.9rem;
+}

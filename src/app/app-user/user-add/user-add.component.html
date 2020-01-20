@@ -1,0 +1,28 @@
+<table>
+    <tr>
+        <td class="title">Add User Login</td>
+    </tr>
+</table>
+<div class="form">
+    <form>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Name</mat-label>
+            <input type="text" [(ngModel)]="user_name" name="user_name" matInput autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field style="margin-top: 10px;" class="form-field" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" [(ngModel)]="user_email" name="user_email" matInput autocomplete="off" required>
+        </mat-form-field>
+        <mat-form-field style="margin-top: 10px;" class="form-field" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" [(ngModel)]="user_pass" name="user_pass" matInput autocomplete="off" required>
+        </mat-form-field>
+        <table width="100%">
+            <tr>
+                <td align="left" width="50%"><button class="mat-btn" mat-flat-button [attr.tabindex]="-1" color="primary" type="submit" (click)="saveData()">Save</button></td>
+                <td align="right" width="50%"><button class="mat-cancel" mat-stroked-button [attr.tabindex]="-1" color="primary" (click)="onCancel()">Cancel</button></td>
+            </tr>
+        </table>
+        
+    </form>
+</div>

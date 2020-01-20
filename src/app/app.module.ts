@@ -27,6 +27,9 @@ import { QuillModule } from 'ngx-quill';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AppUserComponent } from './app-user/app-user.component';
+import { UserAddComponent } from './app-user/user-add/user-add.component';
+import { AppSettingComponent } from './app-setting/app-setting.component';
 
 @NgModule({
     declarations: [
@@ -40,7 +43,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
         AppArticleComponent,
         ArticleAddComponent,
         ArticleDeleteComponent,
-        ArticleEditComponent
+        ArticleEditComponent,
+        AppUserComponent,
+        UserAddComponent,
+        AppSettingComponent
     ],
     imports: [
         BrowserModule,
@@ -63,7 +69,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     entryComponents: [
         AppErrorComponent,
         CategoryAddComponent,
-        CategoryEditComponent
+        CategoryEditComponent,
+        ArticleDeleteComponent,
+        UserAddComponent
     ],
     providers: [
         AppAuthService,

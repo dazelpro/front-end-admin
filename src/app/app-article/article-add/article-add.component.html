@@ -6,7 +6,7 @@
                 <!-- <input type="file" (change)="uploads($event)" accept=".png,.jpg" /> <br><br> -->
                 <input matInput [(ngModel)]="title" name="title" placeholder="Title Article" autocomplete="off" required>
             </mat-form-field>
-            <quill-editor [modules]="modules" syntax="true" [(ngModel)]="content"></quill-editor>
+            <quill-editor [styles]="{height: '380px'}" [modules]="modules" syntax="true" [(ngModel)]="content"></quill-editor>
         </mat-card>
         </div>
         <div class="col-md-4 col-sm-12">

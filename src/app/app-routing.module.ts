@@ -8,6 +8,8 @@ import { AppAuthService } from './app-auth.service';
 import { AppArticleComponent } from './app-article/app-article.component';
 import { ArticleAddComponent } from './app-article/article-add/article-add.component';
 import { ArticleEditComponent } from './app-article/article-edit/article-edit.component';
+import { AppUserComponent } from './app-user/app-user.component';
+import { AppSettingComponent } from './app-setting/app-setting.component';
 
 const appRoutes: Routes = [
     {
@@ -36,6 +38,16 @@ const appRoutes: Routes = [
     {   
         path: 'article/edit/:id',
         component:  ArticleEditComponent,
+        canActivate: [AppAuthService]
+    },
+    {   
+        path: 'users',
+        component:  AppUserComponent,
+        canActivate: [AppAuthService]
+    },
+    {   
+        path: 'settings',
+        component:  AppSettingComponent,
         canActivate: [AppAuthService]
     },
     { 

@@ -46,11 +46,12 @@ export class AppErrorComponent implements OnInit {
     closeExpired(): void {
         this.dialogRef.close();
         localStorage.clear();
-        this.router.navigate(['/2105']);
+        this.router.navigate(['/']);
     }
 
     logout(){
         localStorage.clear();
+        this.router.navigate(['/']);
     }
 
 }
