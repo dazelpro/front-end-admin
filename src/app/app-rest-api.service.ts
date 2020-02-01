@@ -24,8 +24,8 @@ export class AppRestApiService {
     }
 
     link_url(){
-        // return 'http://localhost:8080';
-        return 'https://mean-back-end-v1.herokuapp.com';
+        return 'http://localhost:8080';
+        // return 'https://mean-back-end-v1.herokuapp.com';
     }
 
     link_Frontend(){

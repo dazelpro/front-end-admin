@@ -13,7 +13,7 @@ export class AppArticleComponent implements OnInit {
 
     data: any={};
     dataArticle: [];
-    p: number [] = [1];
+    p: number = 1;
 
     constructor(
         private rest: AppRestApiService,

@@ -18,7 +18,7 @@
     </table>
 </div>
 <div *ngIf="this.status > 0">
-    <div *ngIf="data.reason == 'Unauthorized'">
+    <div *ngIf="reason == 'Unauthorized'">
         <table width="100%">
             <tr>
                 <td align="center">
@@ -37,7 +37,7 @@
             </tr>
         </table>
     </div>
-    <div *ngIf="data.reason != 'Unauthorized'">
+    <div *ngIf="reason != 'Unauthorized'">
         <table width="100%">
             <tr>
                 <td align="center">

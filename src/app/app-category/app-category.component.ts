@@ -13,7 +13,8 @@ export class AppCategoryComponent implements OnInit {
 
     data: any={};
     dataCategory: [];
-    p: number [] = [1];
+    // p: number [] = [1];
+    p: number = 1;
 
     constructor(
         private rest: AppRestApiService,

@@ -12,7 +12,7 @@ export class AppUserComponent implements OnInit {
 
     data: any={};
     dataUsers: [];
-    p: number [] = [1];
+    p: number = 1;
 
     constructor(
         private rest: AppRestApiService,
