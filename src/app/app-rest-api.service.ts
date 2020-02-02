@@ -24,7 +24,8 @@ export class AppRestApiService {
     }
 
     link_url(){
-        return 'http://localhost:8080';
+        // return 'http://localhost:8080';
+        return 'https://admin.dazelpro.xyz';
         // return 'https://mean-back-end-v1.herokuapp.com';
     }
 
@@ -83,12 +84,20 @@ export class AppRestApiService {
         return this.http.get(`${this.link_url()}/api-article/show-article-all`,{ headers: this.getHeaders() });
     }
 
+    posting_article_with_image(data) {
+        return this.http.post(`${this.link_url()}/api-article/post-article-image`,data,{ headers: this.getHeaders() });
+    }
+
     posting_article(data) {
         return this.http.post(`${this.link_url()}/api-article/post-article`,data,{ headers: this.getHeaders() });
     }
 
     get_edit_article(data){
         return this.http.get(`${this.link_url()}/api-article/show-article-detail/`+data,{ headers: this.getHeaders() });
+    }
+
+    edit_article_with_image(data) {
+        return this.http.post(`${this.link_url()}/api-article/edit-article-image`,data,{ headers: this.getHeaders() });
     }
 
     edit_article(data) {

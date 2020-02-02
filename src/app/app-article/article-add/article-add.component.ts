@@ -93,67 +93,91 @@ export class ArticleAddComponent implements OnInit {
         this.selectedFile = <File>event.target.files[0];
         if (this.selectedFile !== undefined){
             this.imgSt = true;
-            this.uploadFile(event);
+            // this.uploadFile(event);
         } else {
             this.imgSt = false;
         }
     }
 
+    // async postingArticle() {
+    //     if (this.title !== '' && this.category !== '' && this.content !== '' && this.dataUsr['idUser'] !== undefined && this.description !== '' && this.keyword !== '') {
+    //         try {
+    //             await this.rest.posting_article({
+    //                 title: this.title,
+    //                 category: this.category,
+    //                 content: this.content,
+    //                 description: this.description,
+    //                 keyword: this.keyword,
+    //                 postby: this.dataUsr['idUser'],
+    //                 filename: this.imageName,
+    //                 status: this.checked
+    //             },
+    //             ).subscribe(async (data)=>{
+    //                 if (data['success']) {
+    //                     this.router.navigate(['/article']);
+    //             }
+    //             },(err)=>{
+    //                 console.log(err);
+    //             }); 
+    //         } catch (error) {
+    //             console.log(error);
+    //         } 
+    //     } else {
+    //         this._snackBar.open('Error: Field has incomplete', 'Yes', {
+    //             duration: 8000,
+    //         });
+    //     }
+    // }
+
     async postingArticle() {
-        if (this.title !== '' && this.category !== '' && this.content !== '' && this.dataUsr['idUser'] !== undefined && this.description !== '' && this.keyword !== '') {
-            try {
-                await this.rest.posting_article({
-                    title: this.title,
-                    category: this.category,
-                    content: this.content,
-                    description: this.description,
-                    keyword: this.keyword,
-                    postby: this.dataUsr['idUser'],
-                    filename: this.imageName,
-                    status: this.checked
-                },
-                ).subscribe(async (data)=>{
-                    if (data['success']) {
-                        this.router.navigate(['/article']);
+        // console.log(this.selectedFile)
+        if (this.title !== '' && this.category !== '' && this.content !== '' && this.dataUsr['idUser'] !== undefined) {
+            if (this.imgSt === true) {
+                let FrmData = new FormData();
+                FrmData.append('image', this.selectedFile, this.selectedFile.name);
+                FrmData.append('title', this.title);
+                FrmData.append('category', this.category);
+                FrmData.append('content', this.content);
+                FrmData.append('postby', this.dataUsr['idUser']);
+                try {
+                    await this.rest.posting_article_with_image(FrmData).subscribe(async (data)=>{
+                        if (data['success']) {
+                            this.router.navigate(['/article']);
+                        }
+                    },(err)=>{
+                        console.log(err);
+                    }); 
+                } catch (error) {
+                    console.log(error);
                 }
-                },(err)=>{
-                    console.log(err);
-                }); 
-            } catch (error) {
-                console.log(error);
-            } 
+            } else {
+                try {
+                    await this.rest.posting_article({
+                        title: this.title,
+                        category: this.category,
+                        content: this.content,
+                        description: this.description,
+                        keyword: this.keyword,
+                        postby: this.dataUsr['idUser'],
+                        filename: '',
+                        status: this.checked
+                    },
+                    ).subscribe(async (data)=>{
+                        if (data['success']) {
+                            this.router.navigate(['/article']);
+                    }
+                    },(err)=>{
+                        console.log(err);
+                    }); 
+                } catch (error) {
+                    console.log(error);
+                } 
+            }
         } else {
             this._snackBar.open('Error: Field has incomplete', 'Yes', {
                 duration: 8000,
             });
         }
     }
-
-    // async postingArticle() {
-    //     if (this.imgSt !== false && this.title !== '' && this.category !== '' && this.content !== '' && this.dataUsr['idUser'] !== undefined) {
-    //         let FrmData = new FormData();
-    //         FrmData.append('image', this.selectedFile, this.selectedFile.name);
-    //         FrmData.append('title', this.title);
-    //         FrmData.append('category', this.category);
-    //         FrmData.append('content', this.content);
-    //         FrmData.append('postby', this.dataUsr['idUser']);
-    //         try {
-    //             await this.rest.posting_article(FrmData).subscribe(async (data)=>{
-    //                 if (data['success']) {
-    //                     this.router.navigate(['/2105/article']);
-    //                 }
-    //             },(err)=>{
-    //                 console.log(err);
-    //             }); 
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     } else {
-    //         this._snackBar.open('Error: Field has incomplete', 'Yes', {
-    //             duration: 8000,
-    //         });
-    //     }
-        
-    // }
 
 }

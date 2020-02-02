@@ -29,7 +29,8 @@ export class ArticleEditComponent implements OnInit {
     description: string;
     keyword: string;
 
-    checked: boolean;
+    checked: true;
+    status:String;
     statusPost: string;
 
     selectedFile: File = null;
@@ -103,25 +104,47 @@ export class ArticleEditComponent implements OnInit {
     }
 
     async editArticle() {
-        try {
-            await this.rest.edit_article({
-                id: this.id,
-                title: this.title,
-                content: this.content,
-                description: this.description,
-                keyword: this.keyword,
-                filename: this.imageName,
-                status: this.checked
-            },
-            ).subscribe(async (data)=>{
-                if (data['success']) {
-                    this.router.navigate(['/article']);
+        // console.log(this.imgSt)
+        if (this.imgSt === true) {
+            let FrmData = new FormData();
+            FrmData.append('id', this.id);
+            FrmData.append('image', this.selectedFile, this.selectedFile.name);
+            FrmData.append('title', this.title);
+            FrmData.append('content', this.content);
+            FrmData.append('description', this.description);
+            FrmData.append('keyword', this.keyword);
+            FrmData.append('status', '1');
+            try {
+                await this.rest.edit_article_with_image(FrmData).subscribe(async (data)=>{
+                    if (data['success']) {
+                        this.router.navigate(['/article']);
+                    }
+                },(err)=>{
+                    console.log(err);
+                }); 
+            } catch (error) {
+                console.log(error);
             }
-            },(err)=>{
-                console.log(err);
-            }); 
-        } catch (error) {
-            console.log(error);
+        } else {
+            try {
+                await this.rest.edit_article({
+                    id: this.id,
+                    title: this.title,
+                    content: this.content,
+                    description: this.description,
+                    keyword: this.keyword,
+                    status: this.checked
+                },
+                ).subscribe(async (data)=>{
+                    if (data['success']) {
+                        this.router.navigate(['/article']);
+                }
+                },(err)=>{
+                    console.log(err);
+                }); 
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 

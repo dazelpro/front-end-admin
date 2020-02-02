@@ -12,7 +12,7 @@
         <div class="col-md-4 col-sm-12">
             <mat-card class="editor">
                 <table width="100%">
-                    <tr>
+                    <!-- <tr>
                         <td>
                             <img style="width: 100%" src="{{ downloadURL | async }}" alt="Card image cap" onerror="this.src='/assets/images/thumbnail.png'">
                         </td>
@@ -21,16 +21,16 @@
                         <td>
                             <mat-progress-bar mode="determinate" [value]="(uploadProgress | async)"></mat-progress-bar>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td align="center">
                             <!-- Upload via Backend -->
-                            <!-- <input hidden type="file" (change)="onFileSelected($event)" #fileInput>
+                            <input hidden type="file" (change)="onFileSelected($event)" #fileInput>
                             <button *ngIf="!imgSt" type="button" [attr.tabindex]="-1" class="btn-input" mat-raised-button (click)="fileInput.click()">Choose Image</button>
-                            <button *ngIf="imgSt" type="button" [attr.tabindex]="-1" class="btn-input" color="primary" mat-raised-button (click)="fileInput.click()">Image Selected</button> -->
+                            <button *ngIf="imgSt" type="button" [attr.tabindex]="-1" class="btn-input" color="primary" mat-raised-button (click)="fileInput.click()">Image Selected</button>
                             <!-- Upload via Frontend -->
-                            <input hidden type="file" (change)="onFileSelected($event)" accept=".png,.jpg" #fileInput>
-                            <button type="button" [attr.tabindex]="-1" class="btn-input" mat-raised-button (click)="fileInput.click()">Choose Image</button>
+                            <!-- <input hidden type="file" (change)="onFileSelected($event)" accept=".png,.jpg" #fileInput>
+                            <button type="button" [attr.tabindex]="-1" class="btn-input" mat-raised-button (click)="fileInput.click()">Choose Image</button> -->
                         </td>
                     </tr>                    
                 </table>
